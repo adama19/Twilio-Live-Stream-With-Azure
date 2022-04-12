@@ -59,13 +59,12 @@ console.log("New Connection Initiated");
         console.log(`Starting Media Stream ${msg.streamSid}`);
         break;
       case "media":
-        //console.log(`Receiving Audio...`)
-        // Create stream to the Azure Speech to text API
-        // process.stdout.write(msg.media.payload + " " + " bytes\033[0G");
-        // streampayload = base64.decode(msg.media.payload);
-        // var data = Buffer.from(streampayload, 'utf-8');
-        // azurePusher.write(mulaw.decode(data));
-
+        console.log(`Receiving Audio...`)
+        //Create stream to the Azure Speech to text API
+        process.stdout.write(msg.media.payload + " " + " bytes\033[0G");
+        streampayload = base64.decode(msg.media.payload);
+        var data = Buffer.from(streampayload, 'utf-8');
+        azurePusher.write(mulaw.decode(data));
 
         // const twilioData = msg.media.payload
         // let wav = new WaveFile()
